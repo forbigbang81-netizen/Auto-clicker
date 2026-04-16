@@ -1,0 +1,5 @@
+[
+  {"action": "click", "x": 500, "y": 1200, "delay": 1000},
+  {"action": "click", "x": 200, "y": 800, "delay": 500},
+  {"action": "swipe", "x1": 500, "y1": 1500, "x2": 500, "y2": 500, "delay": 2000}
+]
