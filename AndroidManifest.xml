@@ -1,0 +1,17 @@
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+<application>
+    <service android:name=".OverlayService" android:enabled="true" android:exported="false" />
+
+    <service 
+        android:name=".TaskEngine"
+        android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+        android:exported="true">
+        <intent-filter>
+            <action android:name="android.view.accessibility.AccessibilityService" />
+        </intent-filter>
+        <meta-data 
+            android:name="android.view.accessibility.accessibilityservice"
+            android:resource="@xml/accessibility_config" />
+    </service>
+</application>
