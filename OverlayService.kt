@@ -5,46 +5,42 @@ import android.content.Intent
 import android.graphics.PixelFormat
 import android.os.IBinder
 import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 
 class OverlayService : Service() {
     private lateinit var windowManager: WindowManager
-    private lateinit var floatingView: View
+    private var floatingButton: Button? = null
 
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onCreate() {
         super.onCreate()
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
-        
-        // Setup layout parameters for "Display Over Apps"
+
         val params = WindowManager.LayoutParams(
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
             PixelFormat.TRANSLUCENT
-        )
-        params.gravity = Gravity.TOP or Gravity.START
-        params.x = 100
-        params.y = 100
+        ).apply {
+            gravity = Gravity.CENTER
+        }
 
-        // Create a simple Record button
-        floatingView = Button(this).apply {
-            text = "Record"
+        floatingButton = Button(this).apply {
+            text = "Play Macro"
             setOnClickListener {
-                // Logic to start capturing coordinates goes here
+                // This would trigger the TaskEngine to start clicking
+                // defined coordinates
             }
         }
 
-        windowManager.addView(floatingView, params)
+        windowManager.addView(floatingButton, params)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        windowManager.removeView(floatingView)
+        if (floatingButton != null) windowManager.removeView(floatingButton)
     }
 }
