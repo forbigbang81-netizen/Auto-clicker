@@ -1,17 +1,30 @@
-<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.tinytask">
 
-<application>
-    <service android:name=".OverlayService" android:enabled="true" android:exported="false" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
-    <service 
-        android:name=".TaskEngine"
-        android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.view.accessibility.AccessibilityService" />
-        </intent-filter>
-        <meta-data 
-            android:name="android.view.accessibility.accessibilityservice"
-            android:resource="@xml/accessibility_config" />
-    </service>
-</application>
+    <application
+        android:allowBackup="true"
+        android:label="TinyTask Mobile"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <service
+            android:name=".OverlayService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name=".TaskEngine"
+            android:exported="true"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.view.accessibility.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.view.accessibility.accessibilityservice"
+                android:resource="@xml/accessibility_config" />
+        </service>
+
+    </application>
+</manifest>
