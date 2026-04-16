@@ -19,17 +19,23 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+    # This helps us debug if files are missing
+    - name: List files for debug
+      run: ls -R
 
     - name: Build with Gradle
-      run: ./gradlew assembleDebug
+      run: |
+        if [ -f "gradlew" ]; then
+          chmod +x gradlew
+          ./gradlew assembleDebug
+        else
+          echo "Gradle wrapper not found! Building without wrapper..."
+          gradle assembleDebug
+        fi
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
-        name: TinyTask-Mobile-Debug
-        path: app/build/outputs/apk/debug/app-debug.apk
-        
+        name: TinyTask-Mobile
+        path: "**/build/outputs/apk/debug/*.apk"
