@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stealth Proxy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Stealth Proxy</h1>
+    <p>Enter any blocked URL (e.g., youtube.com)</p>
+    <input type="text" id="urlInput" placeholder="https://youtube.com" value="https://www.youtube.com">
+    <button id="goBtn">Go</button>
+    <div class="proxy-container">
+      <iframe id="proxyFrame" sandbox="allow-same-origin allow-scripts allow-forms allow-popups"></iframe>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
