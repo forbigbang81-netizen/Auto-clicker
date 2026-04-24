@@ -4,48 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="pageTitle">Greg Prox</title>
-  <link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%233498db'/></svg>">
+  <link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23e74c3c'/></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="intro animate-fade-in">
-    <h1 class="animate-slide-up">Welcome to Stealth Proxy</h1>
-    <p class="animate-slide-up-delay">Bypass restrictions with ease. Configure your private browser below.</p>
-  </div>
-
   <div class="browser-container">
-    <div class="top-bar">
-      <div class="tab-bar">
-        <span class="tab active animate-pulse" id="currentTab">Stealth Proxy</span>
-        <button class="settings-btn animate-hover" id="settingsBtn">⚙️ Settings</button>
-      </div>
-      <div class="search-bar">
-        <input type="text" id="urlInput" placeholder="Enter URL or search query..." value="https://www.youtube.com">
-        <button id="goBtn" class="animate-hover">🔍 Go</button>
-      </div>
+    <div class="header">
+      <div class="clock" id="clock">00:00:00 PM</div>
+      <div class="theme-name">Greg Prox v2.0.0</div>
+    </div>
+    
+    <div class="address-bar">
+      <div class="url-display" id="urlDisplay">education.fugas.pl</div>
+      <input type="text" id="urlInput" placeholder="Search or enter URL..." value="https://www.youtube.com">
     </div>
 
-    <div class="settings-panel" id="settingsPanel">
-      <h3>Settings</h3>
-      <label for="browserName">Private Browser Name:</label>
-      <input type="text" id="browserName" placeholder="e.g., Chrome" value="Stealth Browser">
-
-      <label for="cloakTitle">Tab Cloak Title:</label>
-      <input type="text" id="cloakTitle" placeholder="e.g., Google Docs" value="Google Docs">
-
-      <label for="cloakFavicon">Tab Cloak Favicon URL:</label>
-      <input type="url" id="cloakFavicon" placeholder="https://example.com/favicon.ico" value="https://docs.google.com/favicon.ico">
-
-      <button id="saveSettings" class="animate-hover">Save Settings</button>
-      <button id="closeSettings" class="animate-hover">Close</button>
+    <div class="quick-links">
+      <div class="link-item" data-url="https://youtube.com">
+        <div class="link-icon">▶️</div>
+        <span>YouTube</span>
+      </div>
+      <div class="link-item" data-url="https://x.com">
+        <div class="link-icon">🐦</div>
+        <span>X</span>
+      </div>
+      <div class="link-item" data-url="https://github.com">
+        <div class="link-icon">🐙</div>
+        <span>GitHub</span>
+      </div>
+      <div class="link-item" data-url="https://google.com">
+        <div class="link-icon">🔍</div>
+        <span>Google</span>
+      </div>
+      <div class="link-item" data-url="https://wikipedia.org">
+        <div class="link-icon">📚</div>
+        <span>Wikipedia</span>
+      </div>
+      <div class="link-item" data-url="https://duckduckgo.com">
+        <div class="link-icon">🦆</div>
+        <span>DuckDuckGo</span>
+      </div>
     </div>
 
     <div class="proxy-container">
       <div class="loading-overlay" id="loadingOverlay">
-        <div class="spinner animate-spin"></div>
-        <p>Loading...</p>
+        <div class="spinner"></div>
+        <p>Loading Greg Prox...</p>
       </div>
       <iframe id="proxyFrame" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-navigation"></iframe>
+    </div>
+
+    <div class="footer">
+      <span class="status">Ready</span>
+      <span class="version">Greg Prox v2.0.0</span>
     </div>
   </div>
 
