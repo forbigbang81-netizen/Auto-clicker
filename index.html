@@ -3,19 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stealth Proxy</title>
+  <title id="pageTitle">Stealth Proxy</title>
+  <link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%233498db'/></svg>">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Stealth Proxy</h1>
-    <p>Enter any blocked URL (e.g., youtube.com)</p>
-    <input type="text" id="urlInput" placeholder="https://youtube.com" value="https://www.youtube.com">
-    <button id="goBtn">Go</button>
+  <div class="intro animate-fade-in">
+    <h1 class="animate-slide-up">Welcome to Stealth Proxy</h1>
+    <p class="animate-slide-up-delay">Bypass restrictions with ease. Configure your private browser below.</p>
+  </div>
+
+  <div class="browser-container">
+    <div class="top-bar">
+      <div class="tab-bar">
+        <span class="tab active animate-pulse" id="currentTab">Stealth Proxy</span>
+        <button class="settings-btn animate-hover" id="settingsBtn">⚙️ Settings</button>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="urlInput" placeholder="Enter URL or search query..." value="https://www.youtube.com">
+        <button id="goBtn" class="animate-hover">🔍 Go</button>
+      </div>
+    </div>
+
+    <div class="settings-panel" id="settingsPanel">
+      <h3>Settings</h3>
+      <label for="browserName">Private Browser Name:</label>
+      <input type="text" id="browserName" placeholder="e.g., Chrome" value="Stealth Browser">
+
+      <label for="cloakTitle">Tab Cloak Title:</label>
+      <input type="text" id="cloakTitle" placeholder="e.g., Google Docs" value="Google Docs">
+
+      <label for="cloakFavicon">Tab Cloak Favicon URL:</label>
+      <input type="url" id="cloakFavicon" placeholder="https://example.com/favicon.ico" value="https://docs.google.com/favicon.ico">
+
+      <button id="saveSettings" class="animate-hover">Save Settings</button>
+      <button id="closeSettings" class="animate-hover">Close</button>
+    </div>
+
     <div class="proxy-container">
-      <iframe id="proxyFrame" sandbox="allow-same-origin allow-scripts allow-forms allow-popups"></iframe>
+      <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner animate-spin"></div>
+        <p>Loading...</p>
+      </div>
+      <iframe id="proxyFrame" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-navigation"></iframe>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
